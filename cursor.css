@@ -1,0 +1,32 @@
+body {
+  cursor: none;
+}
+
+body:hover #custom-cursor {
+  opacity: 1;
+}
+
+#custom-cursor {
+  width: 2px;
+  height: 2px;
+  border-radius: 50%;
+  background-color: rgba(161, 160, 160, 0.682);
+  position: fixed;
+  top: 0;
+  opacity: 0;
+  pointer-events: none;
+  mix-blend-mode: difference;
+  transition: transform 500ms;
+}
+
+#custom-cursor::after {
+  content: "";
+  border-radius: 50%;
+  position: absolute;
+  top: -8px;
+  left: -8px;
+  background-color: black;
+  border: 1px solid white;
+  width: 16px;
+  height: 16px;
+}
