@@ -19,7 +19,7 @@ body {
 }
 
 .heading {
-  margin-top: 20;
+  /* margin-top: 20; */
   font-weight: 700;
   text-transform: uppercase;
   font-size: 50px;
@@ -32,13 +32,11 @@ body {
   border-radius: 5px;
   /* width: 50rem; */
   height: 45px;
-  /* display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
-  place-items: center; */
+
   display: flex;
   align-items: center;
   gap: 0;
-  /* justify-content: space-between; */
+
   list-style: none;
 }
 a {
@@ -54,7 +52,12 @@ a {
   text-decoration: none;
   transition: all 0.15s ease-in-out;
 }
-
+span .active {
+  display: inline-block;
+}
+.hidden {
+  display: none;
+}
 a:hover {
   background: rgba(0, 0, 0, 0.23);
   color: white;
@@ -85,7 +88,7 @@ a:hover {
   border-radius: 5px;
 }
 .card img {
-  width: 250px;
+  width: 230px;
   height: 280px;
 
   border-radius: 5px;
@@ -123,7 +126,6 @@ button {
 
   align-items: center;
   justify-content: space-between;
-  padding: 0;
 }
 .title {
   font-size: 1.2rem;
@@ -132,7 +134,11 @@ button {
 }
 
 .vendor {
-  margin-right: 50px;
+  margin-right: 25px;
+}
+
+.vendor span {
+  margin-left: 0%;
 }
 .prices {
   height: 45px;
@@ -151,4 +157,54 @@ button {
 
 .discount {
   color: red;
+}
+
+@media screen and (max-width: 47.9em) {
+  .card img {
+    width: 100%;
+    border-radius: 5px;
+  }
+  .heading {
+    font-weight: 700;
+    text-transform: uppercase;
+    font-size: 20px;
+    text-shadow: 3px 8px 4px rgba(128, 126, 126, 0.346);
+  }
+  a {
+    width: 80px;
+  }
+  .gallery {
+    display: flex;
+    flex-direction: column;
+  }
+}
+
+@media screen and (min-width: 48rem) {
+  .card {
+    width: 14rem;
+  }
+  .card img {
+    width: 100%;
+    border-radius: 5px;
+  }
+
+  .heading {
+    margin-top: 0;
+  }
+  a {
+    width: 180px;
+  }
+
+  .gallery {
+    display: flex;
+    flex-wrap: wrap;
+    margin-left: 20px;
+  }
+
+  .title {
+    font-size: medium;
+  }
+
+  .main {
+  }
 }

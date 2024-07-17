@@ -1,16 +1,17 @@
 function onTabClick(e) {
-  console.log(e.target);
   let activeTabs = document.querySelectorAll(".active");
-
+  // console.log(activeTabs);
   // deactivate existing active tab and panel
   activeTabs.forEach(function (tab) {
     tab.className = tab.className.replace("active", "");
   });
 
   // activate new tab and panel
+
   e.target.parentElement.className += " active";
 
   document.getElementById(e.target.href.split("#")[1]).className += " active";
+  e.target.children[0].classList.remove("hidden");
 }
 
 const element = document.getElementById("nav-tab");
@@ -24,6 +25,7 @@ const getData = async function () {
       "https://cdn.shopify.com/s/files/1/0564/3685/0790/files/multiProduct.json"
     );
     const data = await res.json();
+    console.log(data);
     let menData = data.categories[0];
     let womenData = data.categories[1];
     let kidsData = data.categories[2];
@@ -43,7 +45,7 @@ const getData = async function () {
                     <div class="info">
                     <div class="main">
                     <p class="title">${item.title}</p>
-                    <li class="vendor">${item.vendor}</li>
+                    <li class="vendor"><span>${item.vendor}</span></li>
                     </div>
                     <div class="prices">
                     <p class="sellPrice">Rs. ${item.price}</p>
@@ -102,12 +104,12 @@ const getData = async function () {
                     <img src=${item.image} alt="">
                     <div class="info">
                     <div class="main">
-                    <p class="title">${
-                      item.title.split("").length > 10
-                        ? item.title.split("").slice(0, 11).join("") + ".."
-                        : item.title
-                    }</p>
-                    <li class="vendor">${item.vendor}</li>
+                        <p class="title">${
+                          item.title.split("").length > 10
+                            ? item.title.split("").slice(0, 11).join("") + ".."
+                            : item.title
+                        }</p>
+                        <li class="vendor">${item.vendor}</li>
                     </div>
                     <div class="prices">
                     <p class="sellPrice">Rs. ${item.price}</p>
